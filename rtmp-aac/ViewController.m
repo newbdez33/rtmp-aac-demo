@@ -78,7 +78,6 @@
         return;
     }
     [m_capture addOutput:audioOutput];
-    
     [audioOutput connectionWithMediaType:AVMediaTypeAudio];
     [m_capture startRunning];
     return;
@@ -114,6 +113,10 @@
     uint32_t count = size / sizeof(AudioClassDescription);
     AudioClassDescription descs[count];
     status = AudioFormatGetProperty(kAudioFormatProperty_Encoders, sizeof(encoderSpecifier), &encoderSpecifier, &size, descs);
+    if (status) {
+        NSLog(@"error getting audio format property: %d", (int)(status));
+        return nil;
+    }
     for (uint32_t i=0; i < count; i++) {
         if ( (type == descs[i].mSubType) && (manufacturer == descs[i].mManufacturer)) {
             memcpy(&audioDesc, &descs[i], sizeof(audioDesc));
@@ -132,11 +135,10 @@
     AudioStreamBasicDescription outputFormat;
     
     memset(&outputFormat, 0, sizeof(outputFormat));
-    outputFormat.mSampleRate        =   inputFormat.mSampleRate;
+    outputFormat.mSampleRate        =   44100;
     outputFormat.mFormatID          =   kAudioFormatMPEG4AAC;
-    outputFormat.mChannelsPerFrame  =   inputFormat.mChannelsPerFrame;
+    outputFormat.mChannelsPerFrame  =   1;
     outputFormat.mFramesPerPacket   =   1024;   //AAC fixed
-    
     
     AudioClassDescription * desc = [self getAudioClassDescriptionWithType:kAudioFormatMPEG4AAC fromManufacturer:kAppleSoftwareAudioCodecManufacturer];
     if (AudioConverterNewSpecific(&inputFormat, &outputFormat, 1, desc, &m_converter) != noErr) {
@@ -170,6 +172,10 @@ NSString *NSStringFromOSStatus(OSStatus errCode)
         return NO;
     }
     
+//    UInt32 value = 0;
+//    UInt32 size = sizeof(value);
+//    AudioConverterGetProperty(m_converter, kAudioConverterPropertyMaximumOutputPacketSize, &size, &value);
+    
     CMBlockBufferRef blockBuffer = nil;
     AudioBufferList inBufferList;
     if (CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sampleBuffer, NULL, &inBufferList, sizeof(inBufferList), NULL, NULL, 0, &blockBuffer)) {
@@ -179,10 +185,12 @@ NSString *NSStringFromOSStatus(OSStatus errCode)
     
     AudioBufferList outBufferList;
     outBufferList.mNumberBuffers                =   1;
-    outBufferList.mBuffers[0].mNumberChannels   =   inBufferList.mBuffers[0].mNumberChannels;
+    outBufferList.mBuffers[0].mNumberChannels   =   2;
     outBufferList.mBuffers[0].mDataByteSize     =   *aacLen;
     outBufferList.mBuffers[0].mData             =   aacData;
+    
     UInt32 outputDataPacketSize                 =   1;
+    
     OSStatus st = AudioConverterFillComplexBuffer(m_converter, inputDataProc, &inBufferList, &outputDataPacketSize, &outBufferList, NULL);
     if (st != noErr) {
         NSLog(@"AudioConverterFillComplexBuffer failed:%@", NSStringFromOSStatus(st));
@@ -200,7 +208,7 @@ NSString *NSStringFromOSStatus(OSStatus errCode)
     char szBuf[4096];
     int nSize = sizeof(szBuf);
     if ([self aac:sampleBuffer aacData:szBuf aacLen:&nSize] == YES) {
-        NSLog(@"OK:%@", @(nSize));
+        NSLog(@"aac:%@", @(nSize));
     }else {
         NSLog(@"Failed!");
     }
