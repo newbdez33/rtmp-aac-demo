@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A51087A7B20A164CE89CA577 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82125DD5AE701B5FF0E63D7C /* libPods.a */; };
+		CEF4270F1C50D75F00CE06E9 /* KFAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F41C50D75F00CE06E9 /* KFAACEncoder.m */; };
+		CEF427101C50D75F00CE06E9 /* KFAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F61C50D75F00CE06E9 /* KFAudioEncoder.m */; };
+		CEF427111C50D75F00CE06E9 /* KFEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F81C50D75F00CE06E9 /* KFEncoder.m */; };
+		CEF427121C50D75F00CE06E9 /* KFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426FA1C50D75F00CE06E9 /* KFFrame.m */; };
+		CEF427131C50D75F00CE06E9 /* AVEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF426FE1C50D75F00CE06E9 /* AVEncoder.mm */; };
+		CEF427141C50D75F00CE06E9 /* KFH264Encoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF427001C50D75F00CE06E9 /* KFH264Encoder.mm */; };
+		CEF427151C50D75F00CE06E9 /* LICENSE.markdown in Sources */ = {isa = PBXBuildFile; fileRef = CEF427011C50D75F00CE06E9 /* LICENSE.markdown */; };
+		CEF427161C50D75F00CE06E9 /* MP4Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF427031C50D75F00CE06E9 /* MP4Atom.m */; };
+		CEF427171C50D75F00CE06E9 /* NALUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF427041C50D75F00CE06E9 /* NALUnit.cpp */; };
+		CEF427181C50D75F00CE06E9 /* VideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF427071C50D75F00CE06E9 /* VideoEncoder.m */; };
+		CEF427191C50D75F00CE06E9 /* KFVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF427091C50D75F00CE06E9 /* KFVideoEncoder.m */; };
+		CEF4271A1C50D75F00CE06E9 /* KFVideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4270B1C50D75F00CE06E9 /* KFVideoFrame.m */; };
+		CEF4271B1C50D75F00CE06E9 /* KFRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4270E1C50D75F00CE06E9 /* KFRecorder.m */; };
+		CEF427291C50D8C000CE06E9 /* AssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF427261C50D8C000CE06E9 /* AssetGroup.m */; };
+		CEF4272A1C50D8C000CE06E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF427281C50D8C000CE06E9 /* Utilities.m */; };
 		CEF9D8101C4FC18D0010B1F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF9D80F1C4FC18D0010B1F6 /* main.m */; };
 		CEF9D8131C4FC18D0010B1F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF9D8121C4FC18D0010B1F6 /* AppDelegate.m */; };
 		CEF9D8161C4FC18D0010B1F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF9D8151C4FC18D0010B1F6 /* ViewController.m */; };
@@ -21,6 +36,35 @@
 		20BD199192F693A002363D53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		60E797F28A16A28458F68EDC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		82125DD5AE701B5FF0E63D7C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF426F31C50D75F00CE06E9 /* KFAACEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFAACEncoder.h; sourceTree = "<group>"; };
+		CEF426F41C50D75F00CE06E9 /* KFAACEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFAACEncoder.m; sourceTree = "<group>"; };
+		CEF426F51C50D75F00CE06E9 /* KFAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFAudioEncoder.h; sourceTree = "<group>"; };
+		CEF426F61C50D75F00CE06E9 /* KFAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFAudioEncoder.m; sourceTree = "<group>"; };
+		CEF426F71C50D75F00CE06E9 /* KFEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFEncoder.h; sourceTree = "<group>"; };
+		CEF426F81C50D75F00CE06E9 /* KFEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFEncoder.m; sourceTree = "<group>"; };
+		CEF426F91C50D75F00CE06E9 /* KFFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFFrame.h; sourceTree = "<group>"; };
+		CEF426FA1C50D75F00CE06E9 /* KFFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFFrame.m; sourceTree = "<group>"; };
+		CEF426FD1C50D75F00CE06E9 /* AVEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVEncoder.h; sourceTree = "<group>"; };
+		CEF426FE1C50D75F00CE06E9 /* AVEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AVEncoder.mm; sourceTree = "<group>"; };
+		CEF426FF1C50D75F00CE06E9 /* KFH264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFH264Encoder.h; sourceTree = "<group>"; };
+		CEF427001C50D75F00CE06E9 /* KFH264Encoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KFH264Encoder.mm; sourceTree = "<group>"; };
+		CEF427011C50D75F00CE06E9 /* LICENSE.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.markdown; sourceTree = "<group>"; };
+		CEF427021C50D75F00CE06E9 /* MP4Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Atom.h; sourceTree = "<group>"; };
+		CEF427031C50D75F00CE06E9 /* MP4Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Atom.m; sourceTree = "<group>"; };
+		CEF427041C50D75F00CE06E9 /* NALUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NALUnit.cpp; sourceTree = "<group>"; };
+		CEF427051C50D75F00CE06E9 /* NALUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALUnit.h; sourceTree = "<group>"; };
+		CEF427061C50D75F00CE06E9 /* VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEncoder.h; sourceTree = "<group>"; };
+		CEF427071C50D75F00CE06E9 /* VideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEncoder.m; sourceTree = "<group>"; };
+		CEF427081C50D75F00CE06E9 /* KFVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFVideoEncoder.h; sourceTree = "<group>"; };
+		CEF427091C50D75F00CE06E9 /* KFVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFVideoEncoder.m; sourceTree = "<group>"; };
+		CEF4270A1C50D75F00CE06E9 /* KFVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFVideoFrame.h; sourceTree = "<group>"; };
+		CEF4270B1C50D75F00CE06E9 /* KFVideoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFVideoFrame.m; sourceTree = "<group>"; };
+		CEF4270D1C50D75F00CE06E9 /* KFRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFRecorder.h; sourceTree = "<group>"; };
+		CEF4270E1C50D75F00CE06E9 /* KFRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFRecorder.m; sourceTree = "<group>"; };
+		CEF427251C50D8C000CE06E9 /* AssetGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetGroup.h; sourceTree = "<group>"; };
+		CEF427261C50D8C000CE06E9 /* AssetGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetGroup.m; sourceTree = "<group>"; };
+		CEF427271C50D8C000CE06E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		CEF427281C50D8C000CE06E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		CEF9D80B1C4FC18D0010B1F6 /* rtmp-aac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rtmp-aac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF9D80F1C4FC18D0010B1F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEF9D8111C4FC18D0010B1F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +100,90 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CEF426EF1C50D75F00CE06E9 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				CEF427251C50D8C000CE06E9 /* AssetGroup.h */,
+				CEF427261C50D8C000CE06E9 /* AssetGroup.m */,
+				CEF427271C50D8C000CE06E9 /* Utilities.h */,
+				CEF427281C50D8C000CE06E9 /* Utilities.m */,
+				CEF426F01C50D75F00CE06E9 /* Codecs */,
+				CEF4270C1C50D75F00CE06E9 /* Inputs */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		CEF426F01C50D75F00CE06E9 /* Codecs */ = {
+			isa = PBXGroup;
+			children = (
+				CEF426F11C50D75F00CE06E9 /* Audio */,
+				CEF426F71C50D75F00CE06E9 /* KFEncoder.h */,
+				CEF426F81C50D75F00CE06E9 /* KFEncoder.m */,
+				CEF426F91C50D75F00CE06E9 /* KFFrame.h */,
+				CEF426FA1C50D75F00CE06E9 /* KFFrame.m */,
+				CEF426FB1C50D75F00CE06E9 /* Video */,
+			);
+			path = Codecs;
+			sourceTree = "<group>";
+		};
+		CEF426F11C50D75F00CE06E9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CEF426F21C50D75F00CE06E9 /* AAC */,
+				CEF426F51C50D75F00CE06E9 /* KFAudioEncoder.h */,
+				CEF426F61C50D75F00CE06E9 /* KFAudioEncoder.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		CEF426F21C50D75F00CE06E9 /* AAC */ = {
+			isa = PBXGroup;
+			children = (
+				CEF426F31C50D75F00CE06E9 /* KFAACEncoder.h */,
+				CEF426F41C50D75F00CE06E9 /* KFAACEncoder.m */,
+			);
+			path = AAC;
+			sourceTree = "<group>";
+		};
+		CEF426FB1C50D75F00CE06E9 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				CEF426FC1C50D75F00CE06E9 /* H264 */,
+				CEF427081C50D75F00CE06E9 /* KFVideoEncoder.h */,
+				CEF427091C50D75F00CE06E9 /* KFVideoEncoder.m */,
+				CEF4270A1C50D75F00CE06E9 /* KFVideoFrame.h */,
+				CEF4270B1C50D75F00CE06E9 /* KFVideoFrame.m */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		CEF426FC1C50D75F00CE06E9 /* H264 */ = {
+			isa = PBXGroup;
+			children = (
+				CEF426FD1C50D75F00CE06E9 /* AVEncoder.h */,
+				CEF426FE1C50D75F00CE06E9 /* AVEncoder.mm */,
+				CEF426FF1C50D75F00CE06E9 /* KFH264Encoder.h */,
+				CEF427001C50D75F00CE06E9 /* KFH264Encoder.mm */,
+				CEF427011C50D75F00CE06E9 /* LICENSE.markdown */,
+				CEF427021C50D75F00CE06E9 /* MP4Atom.h */,
+				CEF427031C50D75F00CE06E9 /* MP4Atom.m */,
+				CEF427041C50D75F00CE06E9 /* NALUnit.cpp */,
+				CEF427051C50D75F00CE06E9 /* NALUnit.h */,
+				CEF427061C50D75F00CE06E9 /* VideoEncoder.h */,
+				CEF427071C50D75F00CE06E9 /* VideoEncoder.m */,
+			);
+			path = H264;
+			sourceTree = "<group>";
+		};
+		CEF4270C1C50D75F00CE06E9 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4270D1C50D75F00CE06E9 /* KFRecorder.h */,
+				CEF4270E1C50D75F00CE06E9 /* KFRecorder.m */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
 		CEF9D8021C4FC18D0010B1F6 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +205,7 @@
 		CEF9D80D1C4FC18D0010B1F6 /* rtmp-aac */ = {
 			isa = PBXGroup;
 			children = (
+				CEF426EF1C50D75F00CE06E9 /* Recorder */,
 				CEF9D8111C4FC18D0010B1F6 /* AppDelegate.h */,
 				CEF9D8121C4FC18D0010B1F6 /* AppDelegate.m */,
 				CEF9D8141C4FC18D0010B1F6 /* ViewController.h */,
@@ -229,10 +358,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF427121C50D75F00CE06E9 /* KFFrame.m in Sources */,
 				CEF9D8161C4FC18D0010B1F6 /* ViewController.m in Sources */,
+				CEF427111C50D75F00CE06E9 /* KFEncoder.m in Sources */,
 				CEF9D8271C5092220010B1F6 /* MyAudioReceiver.m in Sources */,
+				CEF4272A1C50D8C000CE06E9 /* Utilities.m in Sources */,
+				CEF427291C50D8C000CE06E9 /* AssetGroup.m in Sources */,
+				CEF427171C50D75F00CE06E9 /* NALUnit.cpp in Sources */,
+				CEF4271B1C50D75F00CE06E9 /* KFRecorder.m in Sources */,
 				CEF9D8131C4FC18D0010B1F6 /* AppDelegate.m in Sources */,
+				CEF4270F1C50D75F00CE06E9 /* KFAACEncoder.m in Sources */,
+				CEF427101C50D75F00CE06E9 /* KFAudioEncoder.m in Sources */,
+				CEF427191C50D75F00CE06E9 /* KFVideoEncoder.m in Sources */,
 				CEF9D8101C4FC18D0010B1F6 /* main.m in Sources */,
+				CEF427131C50D75F00CE06E9 /* AVEncoder.mm in Sources */,
+				CEF427151C50D75F00CE06E9 /* LICENSE.markdown in Sources */,
+				CEF4271A1C50D75F00CE06E9 /* KFVideoFrame.m in Sources */,
+				CEF427161C50D75F00CE06E9 /* MP4Atom.m in Sources */,
+				CEF427181C50D75F00CE06E9 /* VideoEncoder.m in Sources */,
+				CEF427141C50D75F00CE06E9 /* KFH264Encoder.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
