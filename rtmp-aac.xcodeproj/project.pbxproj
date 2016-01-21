@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A51087A7B20A164CE89CA577 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82125DD5AE701B5FF0E63D7C /* libPods.a */; };
 		CEF4270F1C50D75F00CE06E9 /* KFAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F41C50D75F00CE06E9 /* KFAACEncoder.m */; };
 		CEF427101C50D75F00CE06E9 /* KFAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F61C50D75F00CE06E9 /* KFAudioEncoder.m */; };
 		CEF427111C50D75F00CE06E9 /* KFEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF426F81C50D75F00CE06E9 /* KFEncoder.m */; };
@@ -29,7 +28,6 @@
 		CEF9D8191C4FC18D0010B1F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF9D8171C4FC18D0010B1F6 /* Main.storyboard */; };
 		CEF9D81B1C4FC18D0010B1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF9D81A1C4FC18D0010B1F6 /* Assets.xcassets */; };
 		CEF9D81E1C4FC18D0010B1F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF9D81C1C4FC18D0010B1F6 /* LaunchScreen.storyboard */; };
-		CEF9D8271C5092220010B1F6 /* MyAudioReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF9D8261C5092220010B1F6 /* MyAudioReceiver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +73,6 @@
 		CEF9D81A1C4FC18D0010B1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF9D81D1C4FC18D0010B1F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF9D81F1C4FC18D0010B1F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF9D8251C5092220010B1F6 /* MyAudioReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAudioReceiver.h; sourceTree = "<group>"; };
-		CEF9D8261C5092220010B1F6 /* MyAudioReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAudioReceiver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A51087A7B20A164CE89CA577 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +210,6 @@
 				CEF9D81C1C4FC18D0010B1F6 /* LaunchScreen.storyboard */,
 				CEF9D81F1C4FC18D0010B1F6 /* Info.plist */,
 				CEF9D80E1C4FC18D0010B1F6 /* Supporting Files */,
-				CEF9D8251C5092220010B1F6 /* MyAudioReceiver.h */,
-				CEF9D8261C5092220010B1F6 /* MyAudioReceiver.m */,
 			);
 			path = "rtmp-aac";
 			sourceTree = "<group>";
@@ -244,12 +237,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF9D8221C4FC18D0010B1F6 /* Build configuration list for PBXNativeTarget "rtmp-aac" */;
 			buildPhases = (
-				40D555FF707B078A3088E64D /* Check Pods Manifest.lock */,
 				CEF9D8071C4FC18D0010B1F6 /* Sources */,
 				CEF9D8081C4FC18D0010B1F6 /* Frameworks */,
 				CEF9D8091C4FC18D0010B1F6 /* Resources */,
-				46A85A700A8D92DA9747651D /* Embed Pods Frameworks */,
-				48169914480A2ABAD71A41EA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,54 +295,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		40D555FF707B078A3088E64D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		46A85A700A8D92DA9747651D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48169914480A2ABAD71A41EA /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CEF9D8071C4FC18D0010B1F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -361,7 +303,6 @@
 				CEF427121C50D75F00CE06E9 /* KFFrame.m in Sources */,
 				CEF9D8161C4FC18D0010B1F6 /* ViewController.m in Sources */,
 				CEF427111C50D75F00CE06E9 /* KFEncoder.m in Sources */,
-				CEF9D8271C5092220010B1F6 /* MyAudioReceiver.m in Sources */,
 				CEF4272A1C50D8C000CE06E9 /* Utilities.m in Sources */,
 				CEF427291C50D8C000CE06E9 /* AssetGroup.m in Sources */,
 				CEF427171C50D75F00CE06E9 /* NALUnit.cpp in Sources */,
