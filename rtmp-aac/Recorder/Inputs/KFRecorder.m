@@ -105,7 +105,7 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 {
 
     CMTime scaledTime = CMTimeSubtract(frame.pts, self.originalSample);
-    NSLog(@"data:%@", frame.data);
+    NSLog(@"raw aac data:%@", frame.data);
         //[self.hlsWriter processEncodedData:frame.data presentationTimestamp:scaledTime streamIndex:1 isKeyFrame:NO];
 }
 
