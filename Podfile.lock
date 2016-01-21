@@ -1,0 +1,10 @@
+PODS:
+  - TheAmazingAudioEngine (1.5.5)
+
+DEPENDENCIES:
+  - TheAmazingAudioEngine
+
+SPEC CHECKSUMS:
+  TheAmazingAudioEngine: d867edf0da7c4d1283df5d721f5633d5523126b2
+
+COCOAPODS: 0.39.0
