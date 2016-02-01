@@ -133,12 +133,13 @@ void send_pkt(RTMP* pRtmp,char* buf, int buflen, int type, unsigned int timestam
     //CMTime scaledTime = CMTimeSubtract(frame.pts, self.originalSample);
     //NSLog(@"raw aac data:%@", frame.data, frame.pts.value);
         //[self.hlsWriter processEncodedData:frame.data presentationTimestamp:scaledTime streamIndex:1 isKeyFrame:NO];
-    if (frame.data != nil) {
+//    if (frame.data != nil) {
         //1024*1000000/44100= 22.32ms
-        NSLog(@"p:%@", @(p));
-        [rtmp writeAACDataToStream:frame.data time:p];
-        p+=22.32;
-    }
+        NSLog(@"p:%@", @(CMTimeGetSeconds(frame.pts)));
+        [rtmp writeAACDataToStream:frame.data time:p+=(CMTimeGetSeconds(frame.pts)/1000)];
+//    }else {
+//        
+//    }
 
 }
 

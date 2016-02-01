@@ -24,19 +24,10 @@
                                     <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B75-Fa-pEz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vq-GX-D4d">
-                                <rect key="frame" x="285" y="323" width="30" height="30"/>
-                                <state key="normal" title="结束"/>
-                                <connections>
-                                    <action selector="stopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9x-WP-hJO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0vq-GX-D4d" firstAttribute="top" secondItem="dOk-ds-Jbl" secondAttribute="bottom" constant="8" id="9kj-nG-8ng"/>
                             <constraint firstItem="dOk-ds-Jbl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="W5h-pL-BU5"/>
-                            <constraint firstItem="0vq-GX-D4d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jD2-bX-wfa"/>
                             <constraint firstItem="dOk-ds-Jbl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sc3-dx-Kfm"/>
                         </constraints>
                     </view>
