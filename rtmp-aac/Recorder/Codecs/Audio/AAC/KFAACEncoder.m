@@ -36,7 +36,7 @@
         _pcmBufferSize = 0;
         _pcmBuffer = NULL;
         _aacBufferSize = 1024;
-        _addADTSHeader = NO;
+        _addADTSHeader = YES;
         _aacBuffer = malloc(_aacBufferSize * sizeof(uint8_t));
         memset(_aacBuffer, 0, _aacBufferSize);
     }
@@ -66,14 +66,14 @@
     if (self.channels != 0) {
         outAudioStreamBasicDescription.mChannelsPerFrame = inAudioStreamBasicDescription.mChannelsPerFrame;
     } else {
-        outAudioStreamBasicDescription.mChannelsPerFrame = self.channels;
+        outAudioStreamBasicDescription.mChannelsPerFrame = (UInt32)self.channels;
     }
     
     outAudioStreamBasicDescription.mBitsPerChannel = 0; // ... Set this field to 0 for compressed formats.
     outAudioStreamBasicDescription.mReserved = 0; // Pads the structure out to force an even 8-byte alignment. Must be set to 0.
     AudioClassDescription *description = [self
                                           getAudioClassDescriptionWithType:kAudioFormatMPEG4AAC
-                                          fromManufacturer:kAppleSoftwareAudioCodecManufacturer];
+                                          fromManufacturer:kAppleHardwareAudioCodecManufacturer];   //kAppleSoftwareAudioCodecManufacturer
 
     OSStatus status = AudioConverterNewSpecific(&inAudioStreamBasicDescription, &outAudioStreamBasicDescription, 1, description, &_audioConverter);
     if (status != 0) {
@@ -150,7 +150,7 @@ static OSStatus inInputDataProc(AudioConverterRef inAudioConverter, UInt32 *ioNu
         return 0;
     }
     ioData->mBuffers[0].mData = _pcmBuffer;
-    ioData->mBuffers[0].mDataByteSize = _pcmBufferSize;
+    ioData->mBuffers[0].mDataByteSize = (UInt32)_pcmBufferSize;
     _pcmBuffer = NULL;
     _pcmBufferSize = 0;
     return originalBufferSize;
@@ -173,7 +173,7 @@ static OSStatus inInputDataProc(AudioConverterRef inAudioConverter, UInt32 *ioNu
         AudioBufferList outAudioBufferList = {0};
         outAudioBufferList.mNumberBuffers = 1;
         outAudioBufferList.mBuffers[0].mNumberChannels = 1;
-        outAudioBufferList.mBuffers[0].mDataByteSize = _aacBufferSize;
+        outAudioBufferList.mBuffers[0].mDataByteSize = (UInt32)_aacBufferSize;
         outAudioBufferList.mBuffers[0].mData = _aacBuffer;
         AudioStreamPacketDescription *outPacketDescription = NULL;
         UInt32 ioOutputDataPacketSize = 1;

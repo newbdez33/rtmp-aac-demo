@@ -13,9 +13,16 @@
 
 #import "Utilities.h"
 
+#include <librtmp/rtmp.h>
+#include <librtmp/amf.h>
+#include <librtmp/log.h>
+#import "libRTMPClient.h"
+
 NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 
-@interface KFRecorder()
+@interface KFRecorder() {
+    libRTMPClient *rtmp;
+}
 
 @property (nonatomic, strong) AVCaptureAudioDataOutput *audioOutput;
 @property (nonatomic, strong) dispatch_queue_t audioQueue;
@@ -32,6 +39,23 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 
 @implementation KFRecorder
 
+void send_pkt(RTMP* pRtmp,char* buf, int buflen, int type, unsigned int timestamp)
+{
+    int ret;
+    RTMPPacket rtmp_pakt;
+    RTMPPacket_Reset(&rtmp_pakt);
+    RTMPPacket_Alloc(&rtmp_pakt, buflen);
+    rtmp_pakt.m_packetType = type;
+    rtmp_pakt.m_nBodySize = buflen;
+    rtmp_pakt.m_nTimeStamp = timestamp;
+    rtmp_pakt.m_nChannel = 4;
+    rtmp_pakt.m_headerType = RTMP_PACKET_SIZE_LARGE;
+    rtmp_pakt.m_nInfoField2 = pRtmp->m_stream_id;
+    memcpy(rtmp_pakt.m_body, buf, buflen);
+    ret = RTMP_SendPacket(pRtmp, &rtmp_pakt, 0);
+    RTMPPacket_Free(&rtmp_pakt);
+}
+
 + (instancetype)recorderWithName:(NSString *)name
 {
     KFRecorder *recorder = [KFRecorder new];
@@ -43,6 +67,7 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 {
     self = [super init];
     if (!self) return nil;
+
 
     [self setupSession];
     [self setupEncoders];
@@ -68,7 +93,7 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 
     self.aacEncoder = [[KFAACEncoder alloc] initWithBitrate:audioBitrate sampleRate:self.audioSampleRate channels:1];
     self.aacEncoder.delegate = self;
-    self.aacEncoder.addADTSHeader = YES;
+    self.aacEncoder.addADTSHeader = NO;
 }
 
 - (void)setupAudioCapture
@@ -103,10 +128,18 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 #pragma mark KFEncoderDelegate method
 - (void)encoder:(KFEncoder *)encoder encodedFrame:(KFFrame *)frame
 {
+    static double p = 0;
 
-    CMTime scaledTime = CMTimeSubtract(frame.pts, self.originalSample);
-    NSLog(@"raw aac data:%@", frame.data);
+    //CMTime scaledTime = CMTimeSubtract(frame.pts, self.originalSample);
+    //NSLog(@"raw aac data:%@", frame.data, frame.pts.value);
         //[self.hlsWriter processEncodedData:frame.data presentationTimestamp:scaledTime streamIndex:1 isKeyFrame:NO];
+    if (frame.data != nil) {
+        //1024*1000000/44100= 22.32ms
+        NSLog(@"p:%@", @(p));
+        [rtmp writeAACDataToStream:frame.data time:p];
+        p+=22.32;
+    }
+
 }
 
 #pragma mark AVCaptureOutputDelegate method
@@ -138,6 +171,12 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 
 - (void)startRecording
 {
+    //rtmp://52.76.198.49:1935/live/jacky
+//    BOOL ret = [_rtmp openWithURL:@"http://192.168.31.199:1935/live/jacky" enableWrite:YES];
+    rtmp = [[libRTMPClient alloc] init];
+    [rtmp connect];
+    
+    
     self.lastFragmentDate = [NSDate date];
     self.currentSegmentDuration = 0;
     self.originalSample = CMTimeMakeWithSeconds(0, 0);
@@ -156,6 +195,8 @@ NSString *const NotifNewAssetGroupCreated = @"NotifNewAssetGroupCreated";
 - (void)stopRecording
 {
     self.isRecording = NO;
+    
+    [rtmp disconnect];
 
     dispatch_async(self.audioQueue, ^{ // put this on video queue so we don't accidentially write a frame while closing.
         NSError *error = nil;

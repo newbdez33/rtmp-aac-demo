@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "KFRecorder.h"
 
+
 @interface ViewController () <AVCaptureAudioDataOutputSampleBufferDelegate> {
     KFRecorder * recorder;
 }
@@ -19,14 +20,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     recorder = [KFRecorder recorderWithName:@"test"];
-    [recorder startRecording];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [recorder.session startRunning];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    //
+}
+
+- (IBAction)startAction:(UIButton *)sender {
+    
+    [recorder startRecording];
+    
+    sender.enabled = NO;
+}
+
+- (IBAction)stopAction:(UIButton *)sender {
+    sender.enabled = NO;
 }
 
 @end

@@ -13,7 +13,7 @@
 extern NSString *const NotifNewAssetGroupCreated;
 extern NSString *const SegmentManifestName;
 
-@class KFRecorder, KFHLSWriter;
+@class KFRecorder;
 
 @protocol KFRecorderDelegate <NSObject>
 - (void) recorderDidStartRecording:(KFRecorder*)recorder error:(NSError*)error;
