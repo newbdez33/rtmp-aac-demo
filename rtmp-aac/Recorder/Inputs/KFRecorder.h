@@ -41,7 +41,7 @@ extern NSString *const SegmentManifestName;
 @property (nonatomic, weak) id<KFRecorderDelegate> delegate;
 
 + (instancetype)recorderWithName:(NSString *)name;
-- (void)startRecording;
+- (void)startRecording:(NSString *)url;
 - (void)stopRecording;
 - (void)setupSession;
 - (double)durationRecorded;

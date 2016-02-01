@@ -93,7 +93,7 @@ void send_pkt(RTMP* pRtmp,char* buf, int buflen, int type, unsigned int timestam
 
     self.aacEncoder = [[KFAACEncoder alloc] initWithBitrate:audioBitrate sampleRate:self.audioSampleRate channels:1];
     self.aacEncoder.delegate = self;
-    self.aacEncoder.addADTSHeader = NO;
+    self.aacEncoder.addADTSHeader = YES;
 }
 
 - (void)setupAudioCapture
@@ -170,12 +170,12 @@ void send_pkt(RTMP* pRtmp,char* buf, int buflen, int type, unsigned int timestam
 
 }
 
-- (void)startRecording
+- (void)startRecording:(NSString *)url
 {
     //rtmp://52.76.198.49:1935/live/jacky
 //    BOOL ret = [_rtmp openWithURL:@"http://192.168.31.199:1935/live/jacky" enableWrite:YES];
     rtmp = [[libRTMPClient alloc] init];
-    [rtmp connect];
+    [rtmp connect:url];
     
     
     self.lastFragmentDate = [NSDate date];

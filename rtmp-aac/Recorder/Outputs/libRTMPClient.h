@@ -30,7 +30,7 @@
 -(id)init;
 -(id)initWithDelegate:(id)delegate;
 
--(void)connect;
+-(void)connect:(NSString *)url;
 -(void)disconnect;
 
 -(BOOL)isReadyForData;

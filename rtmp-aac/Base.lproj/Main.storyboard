@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,16 +25,28 @@
                                     <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B75-Fa-pEz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://52.76.198.49:1935/live/jacky" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9u5-2C-uBo">
+                                <rect key="frame" x="20" y="247" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9u5-2C-uBo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8vF-NM-O55"/>
                             <constraint firstItem="dOk-ds-Jbl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="W5h-pL-BU5"/>
+                            <constraint firstItem="dOk-ds-Jbl" firstAttribute="top" secondItem="9u5-2C-uBo" secondAttribute="bottom" constant="8" id="nKA-eX-tqv"/>
+                            <constraint firstItem="9u5-2C-uBo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sYM-Dh-Deb"/>
                             <constraint firstItem="dOk-ds-Jbl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sc3-dx-Kfm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="rtmpUrlTextField" destination="9u5-2C-uBo" id="IlE-AZ-MSk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="369" y="346"/>
         </scene>
     </scenes>
 </document>

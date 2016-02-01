@@ -12,6 +12,7 @@
 
 @interface ViewController () <AVCaptureAudioDataOutputSampleBufferDelegate> {
     KFRecorder * recorder;
+    __weak IBOutlet UITextField *rtmpUrlTextField;
 }
 
 @end
@@ -36,7 +37,7 @@
 
 - (IBAction)startAction:(UIButton *)sender {
     
-    [recorder startRecording];
+    [recorder startRecording:rtmpUrlTextField.text];
     
     sender.enabled = NO;
 }

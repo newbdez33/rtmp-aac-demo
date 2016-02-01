@@ -144,10 +144,10 @@ void put_tag(uint8_t **data, const char *tag) {
 
 #pragma mark - Connection Lifecycle
 
--(void)connect {
+-(void)connect:(NSString *)url {
     rtmp = RTMP_Alloc();
     RTMP_Init(rtmp);
-    RTMP_SetupURL(rtmp, outputURL);
+    RTMP_SetupURL(rtmp, (char *)[url UTF8String]);
     RTMP_EnableWrite(rtmp);
     RTMP_LogSetLevel(RTMP_LOGERROR);
     
